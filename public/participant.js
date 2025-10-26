@@ -34,6 +34,7 @@ const COMPETITION_ID = 1;
  */
 async function initDashboard() {
     await checkCompetitionStatus();
+    await fetchAdminDrawing();
     await loadParticipantData();
     setupRealtimeSubscriptions();
 }
@@ -70,7 +71,9 @@ async function checkCompetitionStatus() {
             } else {
                 timerDisplay.textContent = "00:00:00";
             }
-
+             drawingUrl = data.drawing_url; // Get URL from competition
+            downloadDrawingBtn.disabled = !drawingUrl; // Enable/disable button
+    // 
             // Update button states
             updateButtonStates();
         }
@@ -172,9 +175,31 @@ function setupRealtimeSubscriptions() {
             { event: "*", schema: "public", table: "competitions" },
             async (payload) => {
                 await checkCompetitionStatus();
+                await fetchAdminDrawing();
             }
         )
         .subscribe();
+}
+
+/**
+ * Fetch the latest admin CAD drawing URL
+ */
+async function fetchAdminDrawing() {
+    try {
+        const { data, error } = await supabase
+            .from("competitions")
+            .select("drawing_url")
+            .eq("id", COMPETITION_ID)
+            .single();
+
+        if (error) throw error;
+
+        drawingUrl = data.drawing_url || null;
+        downloadDrawingBtn.disabled = !drawingUrl;
+    } catch (err) {
+        console.error("Error fetching admin drawing:", err);
+        downloadDrawingBtn.disabled = true;
+    }
 }
 
 // ========== EVENT LISTENERS ==========
@@ -197,7 +222,7 @@ uploadBtn.addEventListener('click', async () => {
     const participantWeight = parseFloat(weightInput.value);
     
     if (!participantWeight || isNaN(participantWeight) || participantWeight <= 0) {
-        alert("⚠️ Please enter your calculated weight before uploading!");
+        alert(" Please enter your calculated weight before uploading!");
         weightInput.focus();
         return;
     }
@@ -279,6 +304,16 @@ uploadBtn.addEventListener('click', async () => {
         // Reset button state
         uploadBtn.disabled = false;
         uploadBtn.textContent = "Upload CAD Model";
+    }
+});
+/**
+ * DOWNLOAD ADMIN DRAWING button
+ */
+downloadDrawingBtn.addEventListener('click', () => {
+    if (drawingUrl) {
+        window.open(drawingUrl, '_blank'); // Opens drawing in new tab
+    } else {
+        alert(" CAD drawing not available yet. Wait for Admin to Upload");
     }
 });
 

@@ -15,11 +15,6 @@
     </header>
 <div></div>
     <div class="dashboard-content">
-        <!-- Upload Button -->
-        <button id="upload-cad-btn" class="green-btn large-btn">
-             Upload CAD Model
-        </button>
-
         <!-- Timer Display -->
         <div class="timer-box">
              Competition Timer: <span id="comp-timer">00:00:00</span>
@@ -30,6 +25,10 @@
              Download 2D Drawing
         </button>
 
+        <button id="upload-cad-btn" class="green-btn large-btn">
+             Upload CAD Model
+        </button>
+
         <!-- Material Input (Read-only) -->
         <div class="data-entry-group">
             <label for="material-value">Material Type:</label>
@@ -38,9 +37,10 @@
 
         <!-- Weight Input (PARTICIPANT ENTERS THEIR VALUE) -->
         <div class="data-entry-group">
-            <label for="weight-value"> Your Weight Calculation (kg):</label>
-            <input type="number" id="weight-value" placeholder="Enter your calculated weight" step="0.001">
-        </div>
+    <label for="weight-value">⚖️ Your Weight Calculation (kg):</label>
+    <input type="number" id="weight-value" placeholder="Enter your calculated weight" step="0.001">
+</div>
+
 
         <!-- Instructions Card -->
          <div class="instructions-card">
@@ -58,6 +58,7 @@
                 <li>Your timer stops automatically when you upload</li>
                 <li> Score is calculated based on weight accuracy!</li>
                 <li>You can only submit once - make it count!</li>
+                <li>Don't Forget to Log Out After Submitting</li>
             </ul>
         </div>
 

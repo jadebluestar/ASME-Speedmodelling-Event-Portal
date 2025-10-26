@@ -339,36 +339,37 @@ exportBtn.addEventListener('click', async () => {
  * UPLOAD CAD DRAWING button
  */
 uploadDrawingBtn.addEventListener('click', async () => {
-    const file = await pickFile();
+    const file = await pickFile(); // custom file picker
     if (!file) return;
 
     try {
         const filePath = `drawings/${Date.now()}-${file.name}`;
 
-        // Upload to Supabase Storage
+        // Upload to admin-drawings bucket
         const { data, error } = await supabase.storage
-            .from("submissions")
+            .from("admin-drawings")
             .upload(filePath, file);
 
         if (error) throw error;
 
-        // Get public URL
+        // Get public URL for participants
         const { data: urlData } = supabase.storage
-            .from("submissions")
+            .from("admin-drawings")
             .getPublicUrl(filePath);
 
-        // Update competition with drawing URL
+        // Update competitions table with drawing URL
         await supabase
             .from("competitions")
             .update({ drawing_url: urlData.publicUrl })
             .eq("id", COMPETITION_ID);
 
-        alert("CAD drawing uploaded successfully!");
+        alert("✅ CAD drawing uploaded successfully! Participants can now download it.");
     } catch (err) {
         console.error("Upload error:", err);
-        alert("Failed to upload drawing.");
+        alert("❌ Failed to upload drawing.");
     }
 });
+
 
 /**
  * LOGOUT button

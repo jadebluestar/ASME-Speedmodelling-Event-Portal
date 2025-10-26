@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedmodelling Event - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <div id="app-container">
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen-container">
+            <h1>Welcome to EFx KLSGIT!</h1>
+            <div class="logo-container">
+                <img src="logo.jpg" alt="EFx KLSGIT Logo" class="welcome-logo">
+            </div>
+            <h2>Speedmodelling Event</h2>
+            <button id="main-login-btn" class="orange-btn main-action-btn">Login</button>
+        </div>
+
+        <!-- Role Chooser -->
+        <div id="login-chooser" class="screen-container" style="display: none;">
+            <h2>Choose your role:</h2>
+            <button id="show-participant-login" class="orange-btn main-action-btn">Participant Login</button>
+            <button id="show-admin-login" class="orange-btn main-action-btn">Admin Login</button>
+        </div>
+
+        <!-- Participant Login Form -->
+        <div id="participant-login-container" class="login-container" style="display:none;">
+            <h2 class="orange-text">Participant Login</h2>
+            <input type="text" id="participant-name" placeholder="Full Name" required>
+            <input type="email" id="participant-email" placeholder="College Email" required>
+            <input type="text" id="participant-college" placeholder="College Name" required>
+            <button id="participant-login-btn" class="orange-btn submit-btn">Login</button>
+            <button id="back-to-chooser-1" class="orange-btn secondary-link">Back</button>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div id="admin-login-container" class="login-container" style="display:none;">
+            <h2 class="orange-text">Admin Login</h2>
+            <input type="text" id="admin-id" placeholder="Admin Username" required>
+            <input type="password" id="admin-password" placeholder="Password" required>
+            <button id="admin-login-btn" class="orange-btn submit-btn">Login</button>
+            <button id="back-to-chooser-2" class="orange-btn secondary-link">Back</button>
+        </div>
+
+    </div>
+
+    <script src="supabase.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

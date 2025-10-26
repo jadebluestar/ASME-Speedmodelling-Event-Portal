@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Dashboard </title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body>
+    <header class="dashboard-header orange-background">
+        <h1> Participant Dashboard </h1>
+    </header>
+<div></div>
+    <div class="dashboard-content">
+        <!-- Upload Button -->
+        <button id="upload-cad-btn" class="green-btn large-btn">
+             Upload CAD Model
+        </button>
+
+        <!-- Timer Display -->
+        <div class="timer-box">
+             Competition Timer: <span id="comp-timer">00:00:00</span>
+        </div>
+
+        <!-- Download Drawing Button (NEW!) -->
+        <button id="download-drawing-btn" class="orange-btn large-btn" disabled>
+             Download 2D Drawing
+        </button>
+
+        <!-- Material Input (Read-only) -->
+        <div class="data-entry-group">
+            <label for="material-value">Material Type:</label>
+            <input type="text" id="material-value" placeholder="Waiting for admin..." readonly>
+        </div>
+
+        <!-- Weight Input (PARTICIPANT ENTERS THEIR VALUE) -->
+        <div class="data-entry-group">
+            <label for="weight-value"> Your Weight Calculation (kg):</label>
+            <input type="number" id="weight-value" placeholder="Enter your calculated weight" step="0.001">
+        </div>
+
+        <!-- Instructions Card -->
+         <div class="instructions-card">
+            <h3> Competition Instructions</h3>
+            <ul>
+                <li>Wait for the admin to start the competition</li>
+                <li>Once started, the timer will begin automatically</li>
+                <li>Download the 2D drawing reference from admin</li>
+                <li>Create an accurate 3D CAD model based on the drawing</li>
+                <li>Apply the specified material properties shown above</li>
+                <li><strong>Calculate the weight</strong> of your model using CAD software</li>
+                <li><strong>Enter YOUR calculated weight</strong> in the weight field above</li>
+                <li>Upload your completed CAD file when ready</li>
+                <li>Accepted formats: .step, .stl only</li>
+                <li>Your timer stops automatically when you upload</li>
+                <li> Score is calculated based on weight accuracy!</li>
+                <li>You can only submit once - make it count!</li>
+            </ul>
+        </div>
+
+        <!-- Logout Button -->
+        <button id="logout-btn" class="gray-btn large-btn">
+             Log Out
+        </button>
+
+        <!-- Status Button -->
+        <button id="competition-status-btn" class="green-btn large-btn status-btn">
+             Check Status
+        </button>
+    </div>
+
+    <script src="supabase.js"></script>
+    <script src="utils.js"></script>
+    <script src="participant.js"></script>
+</body>
+</html>

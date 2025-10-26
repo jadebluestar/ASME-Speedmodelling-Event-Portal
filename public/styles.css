@@ -12,7 +12,18 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
-
+/* FOOTER */
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;          /* Full width */
+  background-color: #2259f0;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}
 body {
   display: flex;
   justify-content: center;

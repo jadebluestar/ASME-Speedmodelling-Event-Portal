@@ -24,13 +24,16 @@ html, body {
   padding: 15px 0;
   font-size: 14px;
 }
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  body {
   min-height: 100vh;
-  padding: 20px;
+  background: white;
+  color: #333;
+  padding: 0;
+  margin: 0;
 }
+
+
 
 /* ========== COLORS ========== */
 .orange-text { color: #FF8C00; }
@@ -98,6 +101,7 @@ button:active {
 
 /* ========== LOGIN SCREENS ========== */
 #app-container {
+  padding-top: 100px;
   display: flex;
   width: 100%;
   max-width: 500px; /* your existing limit */
@@ -122,6 +126,7 @@ button:active {
 
 
 .screen-container {
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -204,7 +209,8 @@ button:active {
 }
 
 .dashboard-content {
-  padding-top: 300px;
+  padding-top: 100px;
+  margin-top: 500px;
   padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
@@ -376,6 +382,7 @@ button:active {
 
 /* Third row: Instructions Card */
 .instructions-card {
+    padding-top: 300px;
     background: white;
     border-radius: 12px;
     padding: 25px;

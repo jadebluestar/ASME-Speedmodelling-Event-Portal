@@ -16,31 +16,8 @@
 <div></div>
     <div class="dashboard-content">
         <!-- Timer Display -->
-        <div class="timer-box">
-             Competition Timer: <span id="comp-timer">00:00:00</span>
-        </div>
-
-        <!-- Download Drawing Button (NEW!) -->
-        <button id="download-drawing-btn" class="orange-btn large-btn" disabled>
-             Download 2D Drawing
-        </button>
-
-        <button id="upload-cad-btn" class="green-btn large-btn">
-             Upload CAD Model
-        </button>
-
-        <!-- Material Input (Read-only) -->
-        <div class="data-entry-group">
-            <label for="material-value">Material Type:</label>
-            <input type="text" id="material-value" placeholder="Waiting for admin..." readonly>
-        </div>
-
-        <!-- Weight Input (PARTICIPANT ENTERS THEIR VALUE) -->
-        <div class="data-entry-group">
-    <label for="weight-value">⚖️ Your Weight Calculation (kg):</label>
-    <input type="number" id="weight-value" placeholder="Enter your calculated weight" step="0.001">
-</div>
-
+        
+     
 
         <!-- Instructions Card -->
          <div class="instructions-card">
@@ -60,6 +37,30 @@
                 <li>You can only submit once - make it count!</li>
                 <li>Don't Forget to Log Out After Submitting</li>
             </ul>
+            <div class="timer-box">
+             Competition Timer: <span id="comp-timer">00:00:00</span>
+        </div>
+   <!-- Material Input (Read-only) -->
+        <div class="data-entry-group">
+            <label for="material-value">Material Type:</label>
+            <input type="text" id="material-value" placeholder="Waiting for admin..." readonly>
+        </div>
+
+        <!-- Weight Input (PARTICIPANT ENTERS THEIR VALUE) -->
+        <div class="data-entry-group">
+    <label for="weight-value"> Your Weight Calculation (kg):</label>
+    <input type="number" id="weight-value" placeholder="Enter your calculated weight" step="0.001">
+</div>
+
+        <!-- Download Drawing Button (NEW!) -->
+        <button id="download-drawing-btn" class="orange-btn large-btn" disabled>
+             Download 2D Drawing
+        </button>
+
+        <button id="upload-cad-btn" class="green-btn large-btn">
+             Upload CAD Model
+        </button>
+
         </div>
 
         <!-- Logout Button -->

@@ -225,7 +225,7 @@ export function AdminDashboard({
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="admin-weight">Reference Weight (kg)</Label>
+                  <Label htmlFor="admin-weight">Reference Weight (g)</Label>
                   <Input
                     id="admin-weight"
                     type="number"

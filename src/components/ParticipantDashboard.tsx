@@ -138,7 +138,7 @@ export function ParticipantDashboard({
               className="w-full h-20 bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Upload className="w-6 h-6 mr-2" />
-              {hasSubmitted ? "Already Submitted ✓" : uploadedFile ? "Submit Model" : "Upload CAD Model"}
+              {hasSubmitted ? "Already Submitted " : uploadedFile ? "Submit Model" : "Upload CAD Model"}
             </Button>
             <input
               type="file"
@@ -200,7 +200,7 @@ export function ParticipantDashboard({
             transition={{ delay: 0.6 }}
             className="glass-card p-6 rounded-lg"
           >
-            <Label htmlFor="weight">Your Weight Calculation (kg)</Label>
+            <Label htmlFor="weight">Your Weight Calculation (g)</Label>
             <Input
               id="weight"
               type="number"
